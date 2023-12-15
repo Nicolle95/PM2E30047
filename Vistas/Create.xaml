@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM2E30047.Vistas.Create"
+             Title="Crear Registro"
+             BackgroundColor="Beige">
+    <StackLayout>
+        <Grid ColumnDefinitions="*,120" VerticalOptions="Center">
+            <Image x:Name="fotoImage"
+                   Source="user.jpg"
+                   HeightRequest="200"
+                   Aspect="AspectFit"
+                   Grid.Column="0"/>
+
+            <Entry x:Name="entryNumero" Placeholder="ID USUARIO" IsReadOnly="true"/>
+
+            <Button Text="Elegir Imagen"
+                    x:Name="SeleccionarImagen"
+                    Grid.Column="1"
+                    HeightRequest="50"
+                    Clicked="SeleccionarImagen_Clicked"/>
+        </Grid>
+
+
+        <Entry Placeholder="Ingrese una Descripcion" 
+            Margin="10,40,10,10" 
+            x:Name="txtDesc"/>
+
+        <StackLayout>
+            <DatePicker x:Name="fecha" />
+        </StackLayout>
+
+        <Button Text="Grabar Audio" 
+            BackgroundColor="Green"
+            x:Name="audio" 
+            Clicked="Guardar_Audio"/>
+
+        <Button Text="Guardar" 
+        BackgroundColor="Blue"
+        x:Name="B_Ver" 
+        Clicked="Guardar_Clicked"/>
+
+
+    </StackLayout>
+</ContentPage>

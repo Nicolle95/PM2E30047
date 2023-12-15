@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM2E30047.Vistas.PageView"
+             Title="VER LA NOTA"
+             BackgroundColor="Beige">
+    <!-- Contenido superior de la pantalla -->
+        <VerticalStackLayout Padding="10" Spacing="10" Grid.Row="0">
+        <Image Source="{Binding Detalle.Urlfoto}"
+                   Aspect="AspectFit"
+                   HeightRequest="200"/>
+        <Label Text="{Binding Detalle.descripcion}"/>
+        <Label Text="Fecha"/>
+        <Label Text="{Binding Detalle.fecha}"/>
+    </VerticalStackLayout>
+</ContentPage>

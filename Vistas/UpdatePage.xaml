@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="http://schemas.microsoft.com/dotnet/2021/maui/maps"
+             xmlns:sensors="clr-namespace:Microsoft.Maui.Devices.Sensors;assembly=Microsoft.Maui.Essentials"
+             x:Class="PM2E30047.Vistas.UpdatePage"
+             Title="Actualizar Registro"
+             BackgroundColor="Beige">
+
+    <StackLayout>
+        <Grid ColumnDefinitions="*,120" VerticalOptions="Center">
+            <Image Source="{Binding Detalle.Urlfoto}"
+           Aspect="AspectFit"
+           HeightRequest="200"
+                   x:Name="fotoImage"/>
+
+            <Entry x:Name="entryNumero" Placeholder="ID USUARIO" IsReadOnly="true"/>
+
+            <Button Text="Elegir Imagen"
+            x:Name="SeleccionarImagen"
+            Grid.Column="1"
+            HeightRequest="50"
+            Clicked="SeleccionarImagen_Clicked"/>
+        </Grid>
+
+
+        <Entry Placeholder="Ingrese una Descripcion" 
+            Margin="10,40,10,10" 
+            x:Name="txtDesc"/>
+
+        <StackLayout>
+            <DatePicker x:Name="fecha" />
+        </StackLayout>
+
+        <Button Text="Guardar" 
+    BackgroundColor="Blue"
+    x:Name="B_Ver" 
+    Clicked="Guardar_Clicked"/>
+
+
+    </StackLayout>
+</ContentPage>

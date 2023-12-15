@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM2E30047.Vistas.MainPage"
+             Title="Lista de Registros"
+             BackgroundColor="Beige">
+    <Grid x:Name="container">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+
+        </Grid.RowDefinitions>
+
+        <!-- Contenido superior -->
+        <StackLayout Grid.Row="0" Orientation="Horizontal">
+            <Button Text="Nuevo Registro"
+                    x:Name="nuevoReg"
+                    Clicked="nuevoReg_Clicked"/>
+
+            <SearchBar Placeholder="Buscar..."
+                       x:Name="filtroEntry"
+                       TextChanged="filtroEntry_TextChanged"/>
+
+
+
+        </StackLayout>
+
+
+        <!-- Contenido central (Lista de datos) -->
+        <CollectionView x:Name="listaCollection"
+                        ItemsSource="{Binding Lista}"
+                        SelectionMode="Single"
+                        SelectionChanged="listaCollection_SelectionChanged"
+                        Grid.Row="1">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid ColumnSpacing="10" Padding="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.RowSpan="2"
+                               Source="{Binding Urlfoto}"
+                               Aspect="AspectFill"
+                               HeightRequest="60"
+                               WidthRequest="60"/>
+                        <Label Grid.Row="0"
+                               Grid.Column="1"
+                               Text="{Binding descripcion}"
+                               FontAttributes="Bold"
+                               FontSize="15"/>
+                        <Label Grid.Row="1"
+                               Grid.Column="1"
+                               Text="{Binding Empleado.descripcion}"/>
+
+                        <Label Grid.Row="2"
+                               Grid.Column="2"
+                               Text="{Binding fecha}"
+                               FontAttributes="Bold"
+                               FontSize="15"/>
+                        <Label Grid.Row="3"
+                               Grid.Column="2"
+                               Text="{Binding Empleado.fecha}"/>
+
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Contenido inferior (Botones) -->
+        <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+            <Button Text="Actualizar" Clicked="Actualizar_Clicked" BackgroundColor="Blue"/>
+           
+            <Button Text="Eliminar" Clicked="Eliminar_Clicked" BackgroundColor="Red"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>
